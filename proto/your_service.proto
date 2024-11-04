@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package yourpackage;
+
+option go_package = "/proto;proto";
+
+service YourService {
+    rpc AddItem (ItemRequest) returns (OperationResponse);
+    rpc DeleteItem (ItemRequest) returns (OperationResponse);
+    rpc UpdateItem (ItemRequest) returns (OperationResponse);
+    rpc GetItem (ItemRequest) returns (ItemResponse);
+}
+
+message ItemRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message ItemResponse {
+    string key = 1;
+    string value = 2;
+    string message = 3;
+}
+
+message OperationResponse {
+    string message = 1;
+}
